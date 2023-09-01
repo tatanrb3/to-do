@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgresql://postgres:postgres@localhost:5432/project',
+        default='postgres://django_game_soccer_user:5qQ9vMs0bGMtXDCC10cccTK1nvh2wRRB@dpg-cjnusckdfrcc73a0n4p0-a.oregon-postgres.render.com/django_game_soccer',
         conn_max_age=600
     )
 }
