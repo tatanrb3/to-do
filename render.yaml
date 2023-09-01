@@ -1,6 +1,6 @@
 databases:
   - name: django-todoapp-tatan
-    databaseName: django-todoapp-tatan
+    databaseName: django-todoapp-tatan*
     user: tatanrb
 
 services:
