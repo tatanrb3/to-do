@@ -55,14 +55,14 @@
                 <tbody>
                   {% for task in tasks %}
                   <tr>
-                    <th scope="row">1</th>
+                    <th scope="row"> {{ forloop.counter }} </th>
                     <td>{{task.name}}</td>
                     <td>{{task.status}}</td>
                     <td>
-                      <a href="{% url 'delete_task' task.id %}">
+                      <a style="text-decoration: none;" href="{% url 'delete_task' task.id %}">
                         <button type="submit" class="btn btn-danger">Delete</button>
                       </a>
-                      <a href="{% url 'finish_task' task.id %}">
+                      <a style="text-decoration: none;" href="{% url 'finish_task' task.id %}">
                         {% if task.status.name == "In progress" %}
                           <button type="submit" class="btn btn-success ms-1">
                           Finish
