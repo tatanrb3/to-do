@@ -1,7 +1,7 @@
 from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+
 from .models import *
 
 
@@ -34,10 +34,16 @@ def signup(request):
     password2 = request.POST['input-password2']
 
     if password1 == password2:
-        user = User.objects.create_user(username=username, password=password1)
-        user.save()
-        login(request, user)
-        return redirect('/')
+        try:
+            user = User.objects.create_user(username=username, password=password1)
+            user.save()
+            login(request, user)
+            return redirect('/')
+        except:
+            message = "User already in use"
+            return render(request, 'register.html', {
+                'message': message
+            })
     else:
         message = "Passwords doesn´t match, try again"
         return render(request, 'register.html', {
