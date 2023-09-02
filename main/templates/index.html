@@ -37,6 +37,12 @@
                 </div>
               </form>
 
+              {% if not tasks %}
+
+              <h4 class="text-center my-3 pb-3">You dont´t have tasks, create one!</h4>
+
+              {% else %}
+
               <table class="table mb-4">
                 <thead>
                   <tr>
@@ -71,6 +77,8 @@
 
                 </tbody>
               </table>
+
+              {% endif %}
 
             </div>
           </div>
