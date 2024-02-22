@@ -6,8 +6,11 @@ from .models import *
 
 
 def signin(request):
-    if request.method == 'GET':
-        return render(request, 'login.html')
+    try:
+        if request.method == 'GET':
+            return render(request, 'login.html')
+    except Exception as e:
+        return HttpResponseServerError("Error interno del servidor: {}".format(e))
 
     username = request.POST['input-username']
     password = request.POST['input-password']
